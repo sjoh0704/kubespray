@@ -21,3 +21,8 @@ output "default_tags" {
 output "aws_route_table_private" {
   value = aws_route_table.kubernetes-private.*.id
 }
+
+output "aws_route_table_public" {
+  value = aws_route_table.kubernetes-public.*.id
+}
+
