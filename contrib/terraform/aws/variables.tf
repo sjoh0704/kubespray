@@ -1,3 +1,6 @@
+variable "landing_vpc_id" {}
+
+
 variable "AWS_ACCESS_KEY_ID" {
   description = "AWS Access Key"
 }
@@ -25,16 +28,12 @@ data "aws_ami" "distro" {
 
   filter {
     name   = "name"
-    values = ["CentOS 8.4.2105 x86_64"]
+    values = ["ap-northeast-3 image for x86_64 CentOS_8"]
   }
 
-  filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
-  }
-
-  owners = ["125523088429"] # Canonical
+   owners =["374168611083"]
 }
+
 
 //AWS VPC Variables
 
