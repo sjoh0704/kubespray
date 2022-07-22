@@ -20,12 +20,13 @@ variable "aws_cluster_name" {
   description = "Name of AWS Cluster"
 }
 
+// ami 
 data "aws_ami" "distro" {
   most_recent = true
 
   filter {
     name   = "name"
-    values = ["CentOS 8.4.2105 x86_64"]
+    values = var.aws_ami_name
   }
 
   filter {
@@ -33,8 +34,17 @@ data "aws_ami" "distro" {
     values = ["hvm"]
   }
 
-  owners = ["125523088429"] # Canonical
+  owners = var.aws_ami_owner # Canonical
 }
+
+variable "aws_ami_name" {
+  type        = list(string)
+}
+
+variable "aws_ami_owner" {
+  type        = list(string)
+}
+
 
 //AWS VPC Variables
 
